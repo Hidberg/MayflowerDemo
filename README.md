@@ -14,7 +14,7 @@ link is opened:
 5. Assert the report reflects the new click.
 
 ## Requirements
-- **Node.js** version 18+ (for local runs), or **Docker** (for containerized runs).
+- **Node.js** version 22+ (for local runs), or **Docker** (for containerized runs).
 
 ## Configuration
 The test reads credentials and the target URL from environment variables.
