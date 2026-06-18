@@ -12,7 +12,7 @@ export class LoginPage {
         this.usernameInput = page.locator('input[name="username"]');
         this.passwordInput = page.locator('input[name="password"]');
         this.loginButton = page.locator('button[type="submit"]');
-        this.spinLoader = page.locator('.loader');
+        this.spinLoader = page.locator('[data-testid="SpinLoader"]');
     }
 
     async goto() {
