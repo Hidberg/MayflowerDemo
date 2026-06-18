@@ -7,7 +7,8 @@ const CLICK_REGISTRATION_URL = 'go.stripchat.com/r';
 
 test.describe('Statistics/Report/Click registration', () => {
 
-    const verifySummaryTableHeaders = async (statisticsPage: StatisticsPage) => {
+    const verifyReportTableHeaders = async (statisticsPage: StatisticsPage) => {
+        await statisticsPage.runReport();
         const groupColumnHeader = await statisticsPage.summaryTable.columnHeader(0);
         expect(groupColumnHeader).toEqual('GROUP');
         const clicksColumnHeader = await statisticsPage.summaryTable.columnHeader(1);
@@ -42,8 +43,7 @@ test.describe('Statistics/Report/Click registration', () => {
 
         const clicksCountBefore = await test.step('Open statistics and run the default report', async () => {
             await sidebarNav.goToStatistics();
-            await statisticsPage.runReport();
-            await verifySummaryTableHeaders(statisticsPage);
+            await verifyReportTableHeaders(statisticsPage);
 
             const { lastDate, clicksCount } = await getTopRow(statisticsPage);
             if (lastDate === today) {
@@ -62,8 +62,7 @@ test.describe('Statistics/Report/Click registration', () => {
 
         await test.step('Verify the report registered new click', async () => {
             await expect(async () => {
-                await statisticsPage.runReport();
-                await verifySummaryTableHeaders(statisticsPage);
+                await verifyReportTableHeaders(statisticsPage);
 
                 const { lastDate, clicksCount: clicksCountAfter } = await getTopRow(statisticsPage);
                 expect(lastDate).toEqual(today);
