@@ -2,15 +2,15 @@ import { Page, Locator } from '@playwright/test';
 
 export class SidebarNav {
     readonly page: Page;
-    readonly sideBar: Locator;
+    readonly sidebar: Locator;
     readonly analytics: Locator;
     readonly statistics: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.sideBar = page.getByRole('navigation', { name: 'sidebarPopover' });
-        this.analytics = page.getByTitle('Analytics');
-        this.statistics = page.locator('[href="/analytics/statistics"]');
+        this.sidebar = page.locator('nav#sidebarPopover');
+        this.analytics = this.sidebar.getByTitle('Analytics');
+        this.statistics = this.sidebar.locator('[href="/analytics/statistics"]');
     }
 
     async expandAnalytics(): Promise<void> {
