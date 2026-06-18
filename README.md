@@ -1,3 +1,5 @@
+[![TypeScript Check](https://github.com/Hidberg/MayflowerDemo/actions/workflows/typecheck.yml/badge.svg?branch=main)](https://github.com/Hidberg/MayflowerDemo/actions/workflows/typecheck.yml)
+
 # Mayflower Demo
 
 ## Description
