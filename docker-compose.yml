@@ -1,0 +1,8 @@
+services:
+  tests:
+    build: .
+    image: mayflower-demo
+    env_file: .env
+    volumes:
+      # HTML report is written to ./playwright-report-docker on the host.
+      - ./playwright-report-docker:/app/playwright-report
